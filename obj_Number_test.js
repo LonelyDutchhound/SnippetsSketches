@@ -8,6 +8,8 @@
 // Is there an integer k such as : (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k
 // If it is the case we will return k, if not return -1.
 
+
+
 function digPow(n, p){
   let nK=0;
   let strNumb = n.toString();
@@ -17,6 +19,5 @@ function digPow(n, p){
      p++;
    };
 
-  if (nK%n === 0) {return nK/n}
-  else {return -1};
+  return nK%n ? -1: nK/n;
 };
