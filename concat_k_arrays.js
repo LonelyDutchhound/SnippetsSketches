@@ -6,12 +6,13 @@
 
 //Постарайтесь, чтобы решение работало за время k ⋅ log(k) ⋅ n, если считать, что входные массивы имеют длину n.
 let resultLength = 0;
-let originArrayOfArrays = [[1,3,8],[7,9,99],[5,51,85,88],[48,49,55],[55,76,98,99]];
-let arrayOfAllArrays = [];
+let originArrayOfArrays = [[1,5,8,9,99],[2,22,25,29,64],[12,56,89],[3,58,78,79,99]];
+let arrayOfAllArrays;
 
-for (let i = 0; i < originArrayOfArrays.length; i++) {
-  resultLength += originArrayOfArrays[i].length;     //длина результирующего массива=сумме длин исходных
-};
+originArrayOfArrays.forEach(function(element){
+  return resultLength += element.length;
+  });     //длина результирующего массива=сумме длин исходных
+
 
 for (var n = 0; n < originArrayOfArrays.length-1; n++) {
    arrayOfAllArrays = (n===0)? arraySortConcat (originArrayOfArrays[0], originArrayOfArrays[n+1]): arraySortConcat (arrayOfAllArrays, originArrayOfArrays[n+1]);
@@ -51,3 +52,5 @@ function arraySortConcat (x, y) {
       };
     return resultArray;
   };
+
+alert(arrayOfAllArrays);
